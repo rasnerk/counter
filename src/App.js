@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
 
 function App() {
+  const [counter, setCounter] = useState(0)
+
+  const handleIncrement = () => setCounter(prev => prev + 1)
+  const handleDecrease = () => setCounter(prev => prev - 1)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <div className='d-flex justify-content-center'>
+        <h2>{counter}</h2>
+      </div>
+      <div className='d-flex justify-content-center'>
+        <button className='m-2 btn btn-primary' onClick={handleIncrement}>Increase</button>
+        <button className='m-2 btn btn-danger' onClick={handleDecrease}>Decrease</button>
+      </div>
     </div>
   );
 }
